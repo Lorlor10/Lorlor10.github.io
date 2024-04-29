@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            height: 50px;
+            width: 50px;
+        }
+    </style>
+    <script>
+        function haeBootsit() {
+            let kengat = [];
+            let rooli = document.getElementById("rooli").value;
+            if (rooli == "tank") {
+                kengat = ["Mercury's Treads", "Plated Steelcaps"];
+            }
+            else if (rooli == "support") {
+                kengat = ["Ionian Boots of Lucidity", "Mercury's Treads", "Mobility Boots", "Plated Steelcaps"];
+            }   
+            else if (rooli == "fighter") {
+                kengat = ["Mercury's Treads", "Plated Steelcaps", 'Boots Of Swiftness'];
+            }
+            else if (rooli == "mage") {
+                kengat = ["Ionian Boots of Lucidity", "Sorcerer's Shoes"];
+            }   
+            else if (rooli == "assassin") {
+                kengat = ["Ionian Boots of Lucidity", "Mobility Boots", "Boots of Swiftness"];
+            }  
+            else if (rooli == "marksman") {
+                kengat = ["Berserker's Greaves", "Boots of Swiftness"];
+            }
+            let numero = Math.floor(Math.random()*kengat.length);
+            document.getElementById("bootsit").innerHTML=kengat[numero];
+        }
+        function haeItemit() {
+            let itemit = [];
+            let supportit = [];
+            let rooli = document.getElementById("rooli").value;
+            if (rooli == "tank") {
+                itemit = ["Abyssal Mask", "Anathema's Chains", "Dead Man's Plate", "Force Of Nature", "Frozen Heart", "Heartsteel", "Hollow Radiance", "Iceborn Gauntlet", "Jak'Sho, The Protean", "Kaenic Rookern", "Knigth's Vow", "Locket of the Iron Solari", "Randuin's Omen", "Shurelya's Battlesong", "Spirit Visage", "Sterak's Cage", "Sunfire Aegis",
+                        "Thornmail", "Titanic Hydra", "Unending Despair", "Warmog's Armor", "Winter's Approach", "Zeke's Convergence"];
+            }
+            else if (rooli == "support") {
+                itemit = ["Anathema's Chains", "Ardent Censer", "Dawncore", "Echoes of Helia", "Winter's Approach", "Imperial Mandate", "Knight's Vow", "Locket of the Iron Solari", "Mikael's Blessing", "Moonstone Renewer", "Redemption", "Shurelya's Battlesong", "Staff of Flowing Water", "Trailblazer", "Vigilant Wardstone", "Zeke's Convergence",];
+                supportit = ['Celestial Opposition', "Dream Maker", "Zaz'Zak's Realmspike", "Solstice Sleigh", "Bloodsong"];
+            }
+            else if (rooli == "fighter") {
+                itemit = ["Black Cleaver", "Blade of the Ruined King", "Chempunk Chainsword", "Death's Dance", "Eclipse", "Experimental Hexplate", "Guradian Angel", "Guinsoo's Rageblade", "Hullbreaker", "Manamune", "Maw of Malmortius", "Ravenous Hydra", "Serylda's Grudge", "Spear of Shojin", "Sterak's Gage", "Stridebreaker", "Sundered Sky",
+                        "Titanic Hydra", "Trinity Force", "Wit's End"];
+            }
+            else if (rooli == "mage") {
+                itemit = ["Archangel's Staff", "Banshee's Veil", "Cosmic Drive", "Cryptbloom", "Hextech Alternator", "Hextech Rocketbelt", "Horizon Focus", "Liandry's Torment", "Lich Bane", "Luden's Companion", "Malignance", "Mejai's Soulstealer", "Morellonomicon", "Nashor's Tooth", "Rabadon's Deathcap", "Riftmaker", "Rod of Ages", "Rylai's Crystal Scepter",
+                        "Shadowflame", "Stormsurge", "Void Staff", "Zhonya's Hourglass"];
+            }
+            else if (rooli == "assassin") {
+                itemit = ["Axiom Arc", "Black Cleaver", "Chempunk Chainsword", "Eclipse", "Edge of Night", "Guardian Angel", "Hubris", "Manamune", "Maw of Malmortius", "Opportunity", "Profane Hydra", "Ravenous Hydra", "Serpent's Fang", "Serylda's Grudge", "Spear of Shojin", "The Collector", "Umbral Glaive", "Voltaic Cyclosword", "Youmuu's Ghostblade"];
+            }
+            else if (rooli == "marksman") {
+                itemit = ["Blade of the Ruined King", "Essence Reaver", "Guardian Angel", "Guinsoo's Rageblade", "Immortal Shieldbow", "Kraken Slayer", "Lord Dominik's Regards", "Manamune", "Maw of Malmortius", "Mercurial Scimitar", "Navori Quickblades", "Phantom Dancer", "Rapid Firecannon", "Runaan's Hurricane", "Serylda's Grudge", "Statikk Shiv",
+                        "Stormrazor", "Terminus", "The Collector", "Trinity Force"];
+            }
+            let sopivat = [];
+            var kerrat = 5;
+            while (kerrat > 0) {
+                if (rooli == "support" && kerrat === 5) {
+                    let numero = Math.floor(Math.random()*supportit.length);
+                    sopivat.push(supportit[numero]);
+                } else {
+                    let numero = Math.floor(Math.random()*itemit.length);
+                    if (sopivat.includes(itemit[numero])) {
+                        kerrat += 1;
+                    }
+                    else {
+                        sopivat.push(itemit[numero]);
+                    }
+                }
+                kerrat -= 1;
+            }
+            document.getElementById("itemit").innerHTML=sopivat.join(', ');
+        }
+        function haeSummonerit() {
+            let kaksi = [];
+            let kerrat = 0;
+            let summonerit = ["Heal", "Ghost", "Barrier", "Exhaust", "Flash", "Teleport", "Cleanse", "Ignite"];
+            let paikka = document.getElementById("paikka").value;
+            if (paikka == "jungle") {
+                kaksi.push("Smite");
+                kerrat = 1;
+            }
+            else {
+                kerrat = 2;
+            }
+            while (kerrat > 0) {
+                let numero = Math.floor(Math.random()*summonerit.length);
+                if (kaksi.includes(summonerit[numero])) {
+                    kerrat += 1;
+                }
+                else {
+                    kaksi.push(summonerit[numero]);
+                }
+                kerrat -= 1;
+            }
+            document.getElementById("sumsit").innerHTML=kaksi.join(", ");
+        }
+        const runes = {
+            Precision: {
+                keyRunes: ["Press the Attack", "Lethal Tempo", "Fleet Footwork", "Conqueror"],
+                slot1Runes: ["Overheal", "Triumph", "Presence of Mind"],
+                slot2Runes: ["Legend: Alacrity", "Legend: Tenacity", "Legend: Bloodline"],
+                slot3Runes: ["Coup de Grace", "Cut Down", "Last Stand"]
+            },
+            Domination: {
+                keyRunes: ["Electrocute", "Predator", "Dark Harvest", "Hail of Blades"],
+                slot1Runes: ["Cheap Shot", "Taste of Blood", "Sudden Impact"],
+                slot2Runes: ["Zombie Ward", "Ghost Poro", "Eyeball Collection"],
+                slot3Runes: ["Treasure Hunter", "Ingenious Hunter", "Relentless Hunter", "Ultimate Hunter"]
+            },
+            Sorcery: {
+                keyRunes: ["Summon Aery", "Arcane Comet", "Phase Rush"],
+                slot1Runes: ["Nullifying Orb", "Manaflow Band", "Nimbus Cloak"],
+                slot2Runes: ["Trancendence", "Celerity", "Absolute Focus"],
+                slot3Runes: ["Scorch", "Waterwalking", "Gathering Strom"]
+            },
+            Resolve: {
+                keyRunes: ["Grasp of the Undying", "Aftershock", "Guradian"],
+                slot1Runes: ["Demolish", "Font of Life", "Shield Bash"],
+                slot2Runes: ["Conditioning", "Second Wind", "Bone Plating"],
+                slot3Runes: ["Overgrowth", "Revitalize", "Unflinching"]
+            },
+            Inspiration: {
+                keyRunes: ["Glacial Augment", "Unsealed Spellbook", "First Strike"],
+                slot1Runes: ["Hextech Flashtraption", "Magical Footwear", "Triple Tonic"],
+                slot2Runes: ["Future's Market", "Minion Dematerializer", "Biscuit Delivery"],
+                slot3Runes: ["Cosmic Insight", "Approach Velocity", "Time Warp Tonic"]
+            }
+        };
+        function haeSatunnainenListasta(lista) {
+            return lista[Math.floor(Math.random()*lista.length)];
+        }
+        function teeSatunnaisetRunet() {
+            const primaryRune = haeSatunnainenListasta(Object.keys(runes));
+            let secondaryRune = haeSatunnainenListasta(Object.keys(runes));
+
+            while (secondaryRune === primaryRune) {
+                secondaryRune = haeSatunnainenListasta(Object.keys(runes));
+            }
+
+            const primaryRuneOptions = runes[primaryRune];
+            const secondaryRuneOptions = runes[secondaryRune];
+
+            const kaytettavaKey = haeSatunnainenListasta(primaryRuneOptions.keyRunes);
+            const paaKaytettava1 = haeSatunnainenListasta(primaryRuneOptions.slot1Runes);
+            const paaKaytettava2 = haeSatunnainenListasta(primaryRuneOptions.slot2Runes);
+            const paaKaytettava3 = haeSatunnainenListasta(primaryRuneOptions.slot3Runes);
+
+            let toinenKaytettava1 = "";
+            let toinenKaytettava2 = "";
+
+            const secondaryRuneSlots = [
+                secondaryRuneOptions.slot1Runes,
+                secondaryRuneOptions.slot2Runes,
+                secondaryRuneOptions.slot3Runes
+            ];
+
+            const randomSlotIndex = Math.floor(Math.random() * secondaryRuneSlots.length);
+            const randomSlot = secondaryRuneSlots[randomSlotIndex];
+
+            if (randomSlot.length > 0) {
+                toinenKaytettava1 = haeSatunnainenListasta(randomSlot);
+            }
+
+            const remainingSlots = secondaryRuneSlots.filter((slot, index) => index != randomSlotIndex);
+
+            remainingSlots.forEach((slot) => {
+                if (slot.length > 0 && toinenKaytettava1.length === 0) {
+                    toinenKaytettava1 = haeSatunnainenListasta(slot);
+                }
+                else if (slot.length > 0 && toinenKaytettava2.length === 0) {
+                    toinenKaytettava2 = haeSatunnainenListasta(slot);
+                }
+            });
+            return {
+                paarune: primaryRune,
+                kaytettavaKey,
+                paaKaytettava1,
+                paaKaytettava2,
+                paaKaytettava3,
+                toinenrune: secondaryRune,
+                toinenKaytettava1,
+                toinenKaytettava2
+            };
+        }
+        function haeKaikki() {
+            haeBootsit();
+            haeItemit();
+            haeSummonerit();
+            const randomRunes = teeSatunnaisetRunet();
+            const runesOutputElement = document.getElementById("runesOutput");
+
+            runesOutputElement.innerHTML = `Primary Rune: ${randomRunes.paarune}<br>
+            Key Rune: ${randomRunes.kaytettavaKey}<br>
+            Primary Slot 1: ${randomRunes.paaKaytettava1}<br>
+            Primary Slot 2: ${randomRunes.paaKaytettava2}<br>
+            Primary Slot 3: ${randomRunes.paaKaytettava3}<br>
+            Secondary Rune: ${randomRunes.toinenrune}<br>
+            Secondary Slot 1: ${randomRunes.toinenKaytettava1}<br>
+            Secondary Slot 2: ${randomRunes.toinenKaytettava2}`;
+        }
+    </script>
+</head>
+<body>
+    <label for="rooli">Valitse roolisi:</label>
+    <select name="rooli" id="rooli">
+        <option value="tank">Tank</option>
+        <option value="support">Support</option>
+        <option value="mage">Mage</option>
+        <option value="marksman">Marksman</option>
+        <option value="assassin">Assassin</option>
+    </select><br><br>
+    <label for="paikka">Valitse pelipaikkasi:</label>
+    <select name="paikka" id="paikka">
+        <option value="jungle">Jungle</option>
+        <option value="support">Support</option>
+        <option value="adc">Adc</option>
+        <option value="mid">Mid</option>
+        <option value="top">Top</option>
+    </select>
+    <p id="bootsit"></p>
+    <div id="mythic"></div>
+    <p id="itemit"></p>
+    <p id="sumsit"></p>
+    <p id="runesOutput"></p><br>
+    <input type="button" name="haekengat" onclick="haeKaikki()" value="Tavara">
+</body>
+</html>
