@@ -6,9 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        img {
-            height: 50px;
-            width: 50px;
+        body, html {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            background-color: rgb(33, 33, 33);
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input {
+            margin-left: 65px;
+        }
+        label {
+            margin-left: 5px;
+        }
+        p {
+            margin-left: 5px;
         }
     </style>
     <script>
@@ -40,6 +54,7 @@
             let itemit = [];
             let supportit = [];
             let rooli = document.getElementById("rooli").value;
+            let peliPaikka = document.getElementById('paikka').value;
             if (rooli == "tank") {
                 itemit = ["Abyssal Mask", "Anathema's Chains", "Dead Man's Plate", "Force Of Nature", "Frozen Heart", "Heartsteel", "Hollow Radiance", "Iceborn Gauntlet", "Jak'Sho, The Protean", "Kaenic Rookern", "Knigth's Vow", "Locket of the Iron Solari", "Randuin's Omen", "Shurelya's Battlesong", "Spirit Visage", "Sterak's Cage", "Sunfire Aegis",
                         "Thornmail", "Titanic Hydra", "Unending Despair", "Warmog's Armor", "Winter's Approach", "Zeke's Convergence"];
@@ -63,10 +78,13 @@
                 itemit = ["Blade of the Ruined King", "Essence Reaver", "Guardian Angel", "Guinsoo's Rageblade", "Immortal Shieldbow", "Kraken Slayer", "Lord Dominik's Regards", "Manamune", "Maw of Malmortius", "Mercurial Scimitar", "Navori Quickblades", "Phantom Dancer", "Rapid Firecannon", "Runaan's Hurricane", "Serylda's Grudge", "Statikk Shiv",
                         "Stormrazor", "Terminus", "The Collector", "Trinity Force"];
             }
+            if (peliPaikka == 'support') {
+                supportit = ['Celestial Opposition', "Dream Maker", "Zaz'Zak's Realmspike", "Solstice Sleigh", "Bloodsong"];
+            }
             let sopivat = [];
             var kerrat = 5;
             while (kerrat > 0) {
-                if (rooli == "support" && kerrat === 5) {
+                if (kerrat === 5 && rooli == "support" || kerrat === 5 && peliPaikka == "support") {
                     let numero = Math.floor(Math.random()*supportit.length);
                     sopivat.push(supportit[numero]);
                 } else {
@@ -213,27 +231,31 @@
     </script>
 </head>
 <body>
-    <label for="rooli">Valitse roolisi:</label>
-    <select name="rooli" id="rooli">
-        <option value="tank">Tank</option>
-        <option value="support">Support</option>
-        <option value="mage">Mage</option>
-        <option value="marksman">Marksman</option>
-        <option value="assassin">Assassin</option>
-    </select><br><br>
-    <label for="paikka">Valitse pelipaikkasi:</label>
-    <select name="paikka" id="paikka">
-        <option value="jungle">Jungle</option>
-        <option value="support">Support</option>
-        <option value="adc">Adc</option>
-        <option value="mid">Mid</option>
-        <option value="top">Top</option>
-    </select>
-    <p id="bootsit"></p>
-    <div id="mythic"></div>
-    <p id="itemit"></p>
-    <p id="sumsit"></p>
-    <p id="runesOutput"></p><br>
-    <input type="button" name="haekengat" onclick="haeKaikki()" value="Tavara">
+    <div id="optionsContainer">
+        <label for="rooli">Choose your role:</label>
+        <select name="rooli" id="rooli">
+            <option value="tank">Tank</option>
+            <option value="support">Support</option>
+            <option value="mage">Mage</option>
+            <option value="marksman">Marksman</option>
+            <option value="assassin">Assassin</option>
+        </select><br><br>
+        <label for="paikka">Choose your position:</label>
+        <select name="paikka" id="paikka">
+            <option value="jungle">Jungle</option>
+            <option value="support">Support</option>
+            <option value="adc">Adc</option>
+            <option value="mid">Mid</option>
+            <option value="top">Top</option>
+        </select><br><br>
+        <input type="button" name="haekengat" onclick="haeKaikki()" value="Fetch">
+    </div>
+    <div id="outputContainer">
+        <p id="bootsit"></p>
+        <div id="mythic"></div>
+        <p id="itemit"></p>
+        <p id="sumsit"></p>
+        <p id="runesOutput"></p><br>
+    </div>
 </body>
 </html>
