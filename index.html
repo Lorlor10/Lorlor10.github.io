@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build randomizer</title>
+    <title>Document</title>
     <style>
         body, html {
             width: 100%;
@@ -26,6 +26,210 @@
         }
     </style>
     <script>
+        function haeChamppi(baller) {
+            let champit = [];
+            let chompit = {};
+            if (baller == 1) {
+                let rooli = document.getElementById('rooli').value;
+                let paikka = document.getElementById('paikka').value;
+                if (rooli == "tank") {
+                    champit = ["Aatrox", "Alistar", "Amumu", "Blitzcrank", "Braum", "Cho'Gath", "Dr.Mundo", "Galio", "K'sante", "Leona", "Malphite", "Maokai", "Nasus", "Nautilus", "Nunu & Willump", "Olaf", "Ornn", "Poppy",
+                            "Rammus", "Rell", "Sejuani", "Shen", "Shyvana", "Singed", "Sion", "Skarner", "Tahm Kench", "Udyr", "Volibear", "Yorick", "Zac"];
+                } else if (rooli == "support") {
+                    champit = ["Alistar", "Anivia", "Annie", "Ashe", "Bard", "Braum", "Brand", "Heimerdinger", "Hwei", "Ivern", "Janna", "Karma", "Kayle", "Leona", "Lulu", "Lux", "Milio", "Morgana", "Nami", "Nautilus", "Neeko", "Orianna", "Pyke", "Rakan", "Rell", "Renata Glasc", "Senna", "Seraphine", "Sona",
+                            "Soraka", "Swain", "Tahm Kench", "Taliyah", "Taric", "Thresh", "Yuumi", "Zilean", "Zoe", "Zyra"];
+                } else if (rooli == "fighter") {
+                    champit = ["Aatrox", "Bel'Veth", "Briar", "Camille", "Darius", "Dr.Mundo", "Fiora", "Gangplank", "Garen", "Gnar", "Hecarim", "Illaoi", "Irelia", "Jarvan IV", "Jax", "Jayce", "Kayn", "Kled", "Lee Sin", "Master Yi", "Mordekaiser", "Nasus", "Nilah", "Nocturne", "Olaf",
+                            "Pantheon", "Poppy", "Rek'Sai", "Renekton", "Riven", "Sett", "Trundle", "Tryndamere", "Urgot", "Vi", "Viego", "Volibear", "Warwick", "Wukong", "Xin Zhao", "Yasuo", "Yone", "Yorick"];
+                } else if (rooli == "mage") {
+                    champit = ["Ahri", "Akali", "Amumu", "Anivia", "Annie", "Aurelion Sol", "Azir", "Brand", "Cassiopeia", "Diana", "Elise", "Evelynn", "Fiddlesticks", "Galio", "Gragas", "Heimerdinger", "Hwei", "Ivern", "Kai'Sa", "Karma", "Karthus", "Kassadin", "Katarina", "Kayle", "Kennen", "LeBlanc", "Lillia", "Lissandra",
+                            "Lux", "Malzahar", "Morgana", "Neeko", "Nidalee", "Nunu & Willump", "Orianna", "Rumble", "Ryze", "Shaco", "Seraphine", "Swain", "Sylas", "Syndra", "Taliyah", "Twitch", "Twisted Fate", "Varus", "Veigar", "Vel'Koz", "Vex", "Viktor", "Vladimir", "Xerath", "Yuumi", "Ziggs", "Zilean", "Zoe", "Zyra"];
+                } else if (rooli == "assassin") {
+                    champit = ["Akshan",  "Briar", "Kayn", "Kha'Zix", "Naafiri", "Nocturne", "Pantheon", "Pyke", "Qiyana", "Rengar", "Shaco", "Talon", "Zed"];
+                } else if (rooli == "marksman") {
+                    champit = ["Akshan", "Aphelios", "Ashe", "Caitlyn", "Corki", "Draven", "Ezreal", "Gangplank", "Graves", "Jayce", "Jhin", "Jinx", "Kai'Sa", "Kalista", "Kindred", "Kog'Maw", "Lucian", "Miss Fortune", "Quinn", "Samira", "Senna", "Sivir", "Smolder", "Tristana", "Twitch", "Varus", "Vayne", "Xayah", "Zeri"];
+                }
+                console.log(champit);
+                let numero = Math.floor(Math.random()*champit.length);
+                document.getElementById('champion').innerHTML=champit[numero];
+            }else {
+                let chompit = {
+                    Aatrox: ["tank", "fighter", "Aatrox"],
+                    Ahri: ["mage", "Ahri"],
+                    Akali: ["mage", "Akali"],
+                    Akshan: ["assassin", "marksman", "Akshan"],
+                    Alistar: ["tank", "support", "Alistar"],
+                    Amumu: ["tank", "mage", "Amumu"],
+                    Anivia: ["mage", "Anivia"],
+                    Annie: ["mage", "Annie"],
+                    Aphelios: ["marksman", "Aphelios"],
+                    Ashe: ["marksman", "Ashe"],
+                    AurelionSol: ["mage", "Aurelion Sol"],
+                    Azir: ["mage", "Azir"],
+                    Bard: ["support", "Bard"],
+                    BelVeth: ["fighter", "Bel'Veth"],
+                    Blitzcrank: ["tank", "Blitzcrank"],
+                    Brand: ["mage", 'Brand'],
+                    Braum: ["tank", "support", 'Braum'],
+                    Briar: ["fighter", 'Briar'],
+                    Caitlyn: ["marksman", 'Caitlyn'],
+                    Camille: ["fighter", 'Camille'],
+                    Cassiopeia: ["mage", 'Cassiopeia'],
+                    ChoGath: ["tank", "Cho'Gath"],
+                    Corki: ["mage", 'Corki'],
+                    Darius: ["fighter", 'Darius'],
+                    Diana: ["mage", 'Diana'],
+                    Draven: ["marksman", 'Draven'],
+                    DrMundo: ["tank", 'Dr.Mundo'],
+                    Ekko: ["mage", 'Ekko'],
+                    Elise: ["mage", 'Elise'],
+                    Evelynn: ["mage", 'Evelynn'],
+                    Ezreal: ["marksman", 'Ezreal'],
+                    Fiddlesticks: ["mage", 'Fiddlesticks'],
+                    Fiora: ["fighter", 'Fiora'],
+                    Fizz: ["mage", 'Fizz'],
+                    Galio: ["mage", "tank", 'Galio'],
+                    Gangplank: ["fighter", "marksman", 'Gangplank'],
+                    Garen: ["fighter", 'Garen'],
+                    Gnar: ["fighter", 'Gnar'],
+                    Gragas: ["mage", 'Gragas'],
+                    Graves: ["marksman", 'Graves'],
+                    Gwen: ["mage", 'Gwen'],
+                    Hecarim: ["fighter", 'Hecarim'],
+                    Heimerdinger: ["mage", 'Heimerdinger'],
+                    Hwei: ["mage", "support", 'Hwei'],
+                    Illaoi: ['fighter', 'Illaoi'],
+                    Irelia: ['fighter', 'Irelia'],
+                    Ivern: ["mage", 'support', 'Ivern'],
+                    Janna: ['support', 'Janna'],
+                    JarvanIV: ['fighter', 'Jarvan IV'],
+                    Jax: ['fighter', 'Jax'],
+                    Jayce: ['assassin', "marksman", 'Jayce'],
+                    Jhin: ['marksman', 'Jhin'],
+                    Jinx: ['marksman', 'Jinx'],
+                    KaiSa: ['marksman', 'mage', "Kai'Sa"],
+                    Kalista: ['marksman', 'Kalista'],
+                    Karma: ['support', 'mage', 'Karma'],
+                    Karthus: ['mage', 'Karthus'],
+                    Kassadin: ['mage', 'Kassadin'],
+                    Katarina: ['mage', 'Katarina'],
+                    Kayle: ['mage', 'Kayle'],
+                    Kayn: ['fighter', 'assassin', 'Kayn'],
+                    Kennen: ['mage', 'Kennen'],
+                    KhaZix: ['assassin', "Kha'Zix"],
+                    Kindred: ['marksman', 'Kindred'],
+                    Kled: ['fighter', 'Kled'],
+                    KogMaw: ['marksman', "Kog'Maw"],
+                    KSante: ['tank', "K'Sante"],
+                    LeBlanc: ['mage', 'LeBlanc'],
+                    LeeSin: ['fighter', 'Lee Sin'],
+                    Leona: ['tank', 'support', 'Leona'],
+                    Lillia: ['mage', 'Lillia'],
+                    Lissandra: ['mage', 'Lissandra'],
+                    Lucian: ['marksman', 'Lucian'],
+                    Lulu: ['support', 'Lulu'],
+                    Lux: ['mage', 'Lux'],
+                    Malphite: ['tank', 'Malphite'],
+                    Malzahar: ['mage', 'Malzahar'],
+                    Maokai: ['tank', 'Maokai'],
+                    MasterYi: ['marksman', 'Master Yi'],
+                    Milio: ['support', 'Milio'],
+                    MissFortune: ['marksman', 'Miss Fortune'],
+                    Mordekaiser: ['mage', 'Mordekaiser'],
+                    Morgana: ['mage', 'Morgana'],
+                    Naafiri: ['assassin', 'Naafiri'],
+                    Nami: ['mage', 'support', 'Nami'],
+                    Nasus: ['fighter', 'Nasus'],
+                    Nautilus: ['tank', 'Nautilus'],
+                    Neeko: ['mage', 'Neeko'],
+                    Nidalee: ['mage', 'Nidalee'],
+                    Nilah: ['fighter', 'Nilah'],
+                    Nocturne: ['assassin', 'Nocturne'],
+                    NunuNWillump: ['mage', 'tank', 'Nunu & Willump'],
+                    Olaf: ['fighter', 'Olaf'],
+                    Orianna: ['mage', 'Orianna'],
+                    Ornn: ['tank', 'Ornn'],
+                    Pantheon: ['fighter', 'assassin', 'Pantheon'],
+                    Poppy: ['fighter', 'Poppy'],
+                    Pyke: ['assassin', 'Pyke'],
+                    Qiyana: ['assassin', 'Qiyana'],
+                    Quinn: ['marksman', 'Quinn'],
+                    Rakan: ['support', 'Rakan'],
+                    Rammus: ['tank', 'Rammus'],
+                    RekSai: ['fighter', "Rek'Sai"],
+                    Rell: ['tank', 'Rell'],
+                    RenataGlasc: ['support', 'Renata Glasc'],
+                    Renekton: ['fighter', 'Renekton'],
+                    Rengar: ['assassin', 'Rengar'],
+                    Riven: ['fighter', 'Riven'],
+                    Rumble: ['mage', 'Rumble'],
+                    Ryze: ['mage', 'Ryze'],
+                    Samira: ['marksman', 'Samira'],
+                    Sejuani: ['tank', 'Sejuani'],
+                    Senna: ['marksman', 'Senna'],
+                    Seraphine: ['mage', 'support', 'Seraphine'],
+                    Sett: ['fighter', 'Sett'],
+                    Shaco: ['assassin', 'mage', 'Shaco'],
+                    Shen: ['tank', 'Shen'],
+                    Shyvana: ['tank', 'mage', 'Shyvana'],
+                    Singed: ['tank', 'Singed'],
+                    Sion: ['tank', 'assassin', 'Sion'],
+                    Sivir: ['marksman', 'Sivir'],
+                    Skarner: ['tank', 'Skarner'],
+                    Smolder: ['marksman', 'Smolder'],
+                    Sona: ['support', 'Sona'],
+                    Soraka: ['support', 'Soraka'],
+                    Swain: ['mage', 'Swain'],
+                    Sylas: ['mage', 'Sylas'],
+                    Syndra: ['mage', 'Syndra'],
+                    TahmKench: ['tank', 'Tahm Kench'],
+                    Taliyah: ['mage', 'Taliyah'],
+                    Talon: ['assassin', 'Talon'],
+                    Taric: ['tank', 'Taric'],
+                    Teemo: ['mage', 'Teemo'],
+                    Thresh: ['tank', 'Thresh'],
+                    Tristana: ['marksman', 'Tristana'],
+                    Trundle: ['fighter', 'Trundle'],
+                    Tryndamere: ['fighter', 'marksman', 'Tryndamere'],
+                    TwistedFate: ['mage', 'Twisted Fate'],
+                    Twitch: ['mage', 'marksman', 'Twitch'],
+                    Udyr: ['tank', 'fighter', 'Udyr'],
+                    Urgot: ['fighter', 'Urgot'],
+                    Varus: ['mage', 'marksman', 'Varus'],
+                    Vayne: ['marksman', 'Vayne'],
+                    Veigar: ['mage', 'Veigar'],
+                    VelKoz: ['mage', "Vel'Koz"],
+                    Vex: ['mage', 'Vex'],
+                    Vi: ['fighter', 'Vi'],
+                    Viego: ['fighter', 'Viego'],
+                    Viktor: ['mage', 'Viktor'],
+                    Vladimir: ['mage', 'Vladimir'],
+                    Volibear: ['fighter', 'tank', 'Volibear'],
+                    Warwick: ['fighter', 'Warwick'],
+                    Wukong: ['fighter', 'Wukong'],
+                    Xayah: ['marksman', 'Xayah'],
+                    Xerath: ['mage', 'Xerath'],
+                    XinZhao: ['fighter', 'Xin Zhao'],
+                    Yasuo: ['marksman', 'Yasuo'],
+                    Yone: ['marksman', 'Yone'],
+                    Yorick: ['fighter', 'Yorick'],
+                    Yuumi: ['support', 'Yuumi'],
+                    Zac: ['tank', 'Zac'],
+                    Zed: ['assassin', 'Zed'],
+                    Zeri: ['marksman', 'Zeri'],
+                    Ziggs: ['mage', 'Ziggs'],
+                    Zilean: ['mage', 'support', 'Zilean'],
+                    Zoe: ['mage', 'Zoe'],
+                    Zyra: ['mage', 'Zyra']
+                };
+                let keys = Object.keys(chompit);
+                const randomKey = keys[Math.floor(Math.random()*keys.length)];
+                const hahmo = chompit[randomKey];
+                let numero = Math.floor(Math.random()*(hahmo.length-1));
+                document.getElementById('champion').innerHTML=hahmo[hahmo.length-1];
+                document.getElementById('rooli').value=hahmo[numero];
+            }
+        }
         function haeBootsit() {
             let kengat = [];
             let rooli = document.getElementById("rooli").value;
@@ -213,6 +417,11 @@
             };
         }
         function haeKaikki() {
+            if (document.getElementById('kylla').checked && !document.getElementById('satunnainen').checked) {
+                haeChamppi(1);
+            } else if (document.getElementById('kylla').checked && document.getElementById('satunnainen').checked) {
+                haeChamppi(2);
+            }
             haeBootsit();
             haeItemit();
             haeSummonerit();
@@ -248,10 +457,15 @@
             <option value="adc">Adc</option>
             <option value="mid">Mid</option>
             <option value="top">Top</option>
-        </select><br><br>
+        </select><br>
+        <p style="margin: 5px">Also give random champion based on role:</p>
+        <input type="radio" id="kylla" name="kyl">Yes<br>
+        <input type="radio" checked name="kyl">No<br><br>
+        <input type="checkbox" id="satunnainen">Generate completely random champion<br><br>
         <input type="button" name="haekengat" onclick="haeKaikki()" value="Fetch">
     </div>
     <div id="outputContainer">
+        <p id="champion"></p>
         <p id="bootsit"></p>
         <div id="mythic"></div>
         <p id="itemit"></p>
